@@ -38,7 +38,6 @@ export default class SortingVisualizer extends React.Component {
                 setTimeout(() => {
                     barOneStyle.backgroundColor = color;
                     barTwoStyle.backgroundColor = color;
-                    
                 }, i * 2)
             }else{
                 setTimeout(() => {
@@ -48,6 +47,7 @@ export default class SortingVisualizer extends React.Component {
                 }, i * 2)
             }
         }
+        disableBtn();
     }
 
     QuickSort(){}
@@ -81,4 +81,12 @@ export default class SortingVisualizer extends React.Component {
 
 function randomIntFromInterval(min, max){
     return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function disableBtn() {
+    document.getElementsByClassName("btn").disabled = true;
+}
+
+function enableBtn() {
+    document.getElementsByClassName("btn").disabled = false;
 }
