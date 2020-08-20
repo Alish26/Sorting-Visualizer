@@ -7,8 +7,7 @@ export default class SortingVisualizer extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            array: [],
-            disabled: false
+            array: []
         };
     }
 
@@ -27,8 +26,8 @@ export default class SortingVisualizer extends React.Component {
     MergeSort(){
         const arr = this.state.array;
         let animations = getMergeSortAnimation(arr);
+        const arrayBar = document.getElementsByClassName('array-bar');
         for(let i = 0; i < animations.length; i++){
-            const arrayBar = document.getElementsByClassName('array-bar');
             const isChangeColor = i % 3 !== 2;
             if(isChangeColor){
                 const [barOneIdx, barTwoIdx] = animations[i];
@@ -47,12 +46,35 @@ export default class SortingVisualizer extends React.Component {
                 }, i * 2)
             }
         }
-        disableBtn();
     }
 
     QuickSort(){}
 
-    BubbleSort(){}
+    BubbleSort(){
+        const array = this.state.array;
+        const arrayBar = document.getElementsByClassName('array-bar');
+        for(let i = 0; i < array.length - 1; i++){
+            for(let j = 0; j < array.length - 1 - i; j++){
+                const barOneStyle = arrayBar[i].style;
+                const barTwoStyle = arrayBar[j].style;
+                setTimeout(() => {
+                    barOneStyle.backgroundColor = 'red';
+                    barTwoStyle.backgroundColor = 'red';
+                }, j * 10)
+                if(array[j] > array[j + 1]) {
+                    const temp = array[i];
+                    setTimeout(() => {
+                        barOneStyle.backgroundColor = 'turquoise';
+                        barTwoStyle.backgroundColor = 'turquoise';
+                    }, i * 10);
+                    setTimeout(() => {
+                        barOneStyle.height = `${array[j]}`;
+                        barTwoStyle.height = `${temp}`;
+                    }, i * 10);
+                }
+            }
+        }
+    }
 
     HeapSort(){}
 
