@@ -4,9 +4,9 @@ export function getMergeSortAnimation(array) {
     const auxiliaryArray = array.slice();
     mergeSortHelper(array, 0, array.length - 1, auxiliaryArray, animations);
     return animations;
-  }
+}
   
-  function mergeSortHelper(
+function mergeSortHelper(
     mainArray,
     startIdx,
     endIdx,
@@ -18,10 +18,10 @@ export function getMergeSortAnimation(array) {
     mergeSortHelper(auxiliaryArray, startIdx, middleIdx, mainArray, animations);
     mergeSortHelper(auxiliaryArray, middleIdx + 1, endIdx, mainArray, animations);
     doMerge(mainArray, startIdx, middleIdx, endIdx, auxiliaryArray, animations);
-  }
+}
   
-  function doMerge(
-    mainArray,
+function doMerge(
+  mainArray,
     startIdx,
     middleIdx,
     endIdx,
@@ -73,5 +73,5 @@ export function getMergeSortAnimation(array) {
       // value at index j in the auxiliary array.
       animations.push([k, auxiliaryArray[j]]);
       mainArray[k++] = auxiliaryArray[j++];
-    }
   }
+}
