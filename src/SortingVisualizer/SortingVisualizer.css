@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 button:hover {
     background-color: rgb(0, 0, 255);
     color: white;
@@ -6,7 +12,8 @@ button:hover {
 
 button {
     height: 30px;
-    margin: 10px 5px;
+    margin-left: 10px;
+    padding: 0px 5px ;
     border-radius: 20px;
     border: 1px black solid;
     outline: none;
@@ -14,7 +21,9 @@ button {
 
 .sort-array {
     display: flex;
+    max-height: 550px;
     justify-content: center;
+    margin-bottom: 30px;
 }
 @media(min-width: 700px) {
     .array-bar{
